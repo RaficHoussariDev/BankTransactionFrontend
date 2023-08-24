@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <div class="title">Bank Application</div>
+  <div class="burger-icon" (click)="toggleNavigationBar()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <ul class="nav-links" *ngIf="isNavigationBarOpen || screenWidth >= 808">
+    <a routerLinkActive="active-link" routerLink="/accounts">Accounts</a>
+    <a routerLinkActive="active-link" routerLink="/transactions">Transactions</a>
+  </ul>
+</nav>

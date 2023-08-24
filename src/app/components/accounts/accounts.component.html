@@ -1,0 +1,36 @@
+<app-loading *ngIf="loading"></app-loading>
+<table class="table" [ngClass]="{ 'blocked-table': showTransactionPopup }" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th *ngFor="let header of tableHeaders">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accounts">
+      <td>{{ account.rank }}</td>
+      <td>{{ account.accountName }}</td>
+      <td>{{ account.amount }}</td>
+      <td>{{ account.customerName }}</td>
+      <td>
+        <input
+          class="transaction-button"
+          type="button"
+          value="Make Transaction"
+          [disabled]="showTransactionPopup"
+          (click)="displayTransactionPopup(account.id)"
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+<app-transaction-popup
+  *ngIf="showTransactionPopup"
+  [accountId]="accountIdInput"
+  (closePopupEvent)="onCancelEventHandler()"
+  (successMessageEvent)="onSuccessMessageEventHandler($event)"
+></app-transaction-popup>
+
+<app-alert
+  *ngIf="showAlertComponent"
+  [message]="transactionSuccessMessage"
+></app-alert>

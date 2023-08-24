@@ -1,0 +1,39 @@
+.table {
+  border-collapse: collapse;
+  margin: 50px auto;
+  position: relative;
+  width: 80%;
+
+  th {
+    background-color: black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }
+
+  tbody {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+    td {
+      border-bottom: 1px solid gray;
+      padding: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.blocked-table {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media(max-width: 700px) {
+  .table {
+    display: block;
+    min-width: 80%;
+    overflow-x: scroll;
+  }
+}

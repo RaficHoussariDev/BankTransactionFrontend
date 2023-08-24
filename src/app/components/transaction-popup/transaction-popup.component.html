@@ -1,0 +1,30 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="popup-container">
+  <div class="title">Make a Transaction</div>
+  <div class="popup-content">
+    <input
+      type="number"
+      class="amount-input"
+      min="0"
+      name="transaction-amount"
+      placeholder="Pick an Amount..."
+      [(ngModel)]="transactionAmount"
+    >
+    <div class="dropdown">
+      <button class="dropdown-button" (click)="toggleDropdown()">
+        {{ transactionButtonText }}
+        <span class="arrow-down">&#9660;</span>
+      </button>
+      <div class="dropdown-values" [ngClass]="{ 'show': dropdownOpen }">
+        <p *ngFor="let type of transactionTypes"><span (click)="selectOption(type)">{{ type }}</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <div class="button-container">
+    <input type="button" class="popup-button cancel-button" value="Cancel" (click)="cancel()">
+    <input type="button" [disabled]="!disableApplyButton()" class="popup-button apply-button" value="Apply" (click)="apply()">
+  </div>
+</div>
