@@ -19,7 +19,6 @@ export class NavigationBarComponent implements OnInit {
     if(this.screenWidth > 808) {
       this.isNavigationBarOpen = true;
     } else {
-      console.log('here')
       this.isNavigationBarOpen = false;
     }
   }
